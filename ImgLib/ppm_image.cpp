@@ -50,6 +50,13 @@ namespace img_lib
         // открываем поток с флагом ios::binary
         // поскольку будем читать даные в двоичном формате
         ifstream ifs(file, ios::binary);
+
+        // Функция LoadPPM возвращает пустое изображение, если его не удалось прочитать
+        if (!ifs.is_open())
+        {
+            return Image();
+        }
+
         std::string sign;
         int w, h, color_max;
 
